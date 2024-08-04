@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Detalles de Mascota</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: rgb(255, 225, 225);
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+            margin-top: 20px;
+        }
+        .container {
+            background-color: rgb(255, 255, 255);
+            padding: 20px;
+            margin: 20px auto;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            width: 80%;
+            max-width: 600px;
+            text-align: left;
+        }
+        p {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+        span {
+            font-weight: bold;
+            color: #555;
+        }
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: rgb(255, 0, 128);
+            font-size: 16px;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>Detalles de la Mascota</h1>
+    <div class="container">
+        <p>ID: <span th:text="${mascota.id}"></span></p>
+        <p>Nombre: <span th:text="${mascota.nombre}"></span></p>
+        <p>Fecha de Nacimiento: <span th:text="${#dates.format(mascota.fechaNac, 'yyyy-MM-dd')}"></span></p>
+        <p>Raza: <span th:text="${mascota.raza}"></span></p>
+        <p>Peso: <span th:text="${mascota.peso}"></span></p>
+        <p>Tiene Chip: <span th:text="${mascota.tieneChip ? 'Sí' : 'No'}"></span></p>
+        <p>URL de Foto: <span th:text="${mascota.urlFoto}"></span></p>
+    </div>
+    <a href="/mascotas">Volver a la lista</a>
+	<a href="/">Volver al inicio</a>
+</body>
+</html>
