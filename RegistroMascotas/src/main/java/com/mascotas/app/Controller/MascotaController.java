@@ -54,11 +54,12 @@ public class MascotaController {
         Optional<Mascota> mascota = mascotaService.buscarPorId(id);
         if (mascota.isPresent()) {
             model.addAttribute("mascota", mascota.get());
-            return "verMascota";
+            model.addAttribute("error", false);
         } else {
+            model.addAttribute("error", true);
             model.addAttribute("mensaje", "Mascota no encontrada.");
-            return "error";
         }
+        return "verMascota";
     }
 
     // Show form to create a new pet
